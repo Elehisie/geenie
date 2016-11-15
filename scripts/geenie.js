@@ -44,7 +44,7 @@
       if (!this.list.length) { 
         console.log('was empty');
         this.list = this.last.slice();
-        while(this.list.length) { console.log(this.list.shift()) } 
+        while(this.list.length) { this.list.shift().call() } 
       }
       else { 
         this.last = this.list.slice();

@@ -13,8 +13,19 @@
     var cy = ctx.canvas.height/2+ctx.canvas.height/2;
     var r = Math.min(ctx.canvas.width,ctx.canvas.height)/3;
     
+    var second = -angle*(2*Math.PI/600)+Math.PI/2;
+    
     ctx.arc(cx,cy,r,0,2*Math.PI);
+    ctx.moveTo(cx,cy);
+    ctx.lineTo(cx+r*0.90*Math.cos(Math.PI/2),cy+r*0.90*(-Math.sin(Math.PI/2)));
+//    ctx.lineTo(cx+r*0.90*Math.cos(second),cy+r*0.90*(-Math.sin(second)));
     ctx.stroke();
+    
+//    angle++;
+  }
+  
+  var test = function() {
+    console.log('unsecure injection');
   }
 
   var orbit = function() {
@@ -31,6 +42,9 @@
     var Y = (cy+r*(-Math.sin(second)));
 
     var cat = geenie.setupImage('images/flycat.gif');
+    
+    //it is possible to tell when the cat has come back to the begining because the
+    // angle%360 will return 0.
 
     ctx.save();
     //adjusts so the center of the diamond stays on the circle
