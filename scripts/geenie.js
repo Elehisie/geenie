@@ -1,9 +1,9 @@
-(function(exports) {
-  var addAllListeners = function() {
+(function (exports) {
+		var addAllListeners = function() {
     window.addEventListener('resize', geenie.renderCanvas);
-  }
+  };
   
-  exports.Setup = function() { 
+  exports.Setup = function () { 
     //this qualifies as a constructor
     var canvas = document.createElement('canvas');
     document.body.insertBefore(canvas, document.body.childNodes[1]);
@@ -22,17 +22,17 @@
     addAllListeners();
     
     return geenie.ctx = canvas.getContext('2d');
-  }
+  };
   
   exports.setupImage = function(src) {
     img = new Image();
     img.src = src;
     return img;
-  }
+  };
   
   exports.clearCanvas = function() {
     geenie.ctx.clearRect(0,0,geenie.ctx.canvas.width,geenie.ctx.canvas.height);
-  }
+  };
   
   var renderQ = {
     list: [],
@@ -51,7 +51,7 @@
         while(this.list.length) { this.list.shift().call() }
       }
     },
-  }
+  };
   
   exports.addToRenderQ = function(func) {
     renderQ.add(func);
@@ -64,7 +64,7 @@
     geenie.ctx.beginPath();
     geenie.clearCanvas();
     renderQ.process();
-  }
+  };
   
 })(this.geenie = {});
 
